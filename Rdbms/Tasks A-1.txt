@@ -1,0 +1,92 @@
+# SQL queries for the below cases:
+
+Q1) WSQL to create a employee table with id,name,address,age,salary,phone columns. 
+
+         :   CREATE TABLE Employee (
+              id INT,
+              name VARCHAR(50),
+              address VARCHAR(100),
+              age INT,
+              salary DECIMAL(10,2),
+              phone VARCHAR(20)
+               );
+
+Q2) WSQL to alter table to add new column 'statecode' in the existing employee table.
+
+          :  ALTER TABLE employee
+             ADD COLUMN statecode VARCHAR(2);
+
+Q3) WSQL to alter table to rename the table from employee to employee_details table.
+
+         :   ALTER TABLE employee RENAME TO employee_details;
+
+Q4) WSQL to insert 10 different records to the employee table.
+
+         :   INSERT INTO employee (employee_id, employee_name, department, salary)
+             VALUES
+             (1, 'Sakshi Gupta', 'Development', 500000),
+             (2, 'Ankit sagar', 'Analyst', 600),
+             (3, 'Namrata Jaiswal', 'Designer', 5000),
+             (4, 'Nawaid Aehmad', 'HR', 400),
+             (5, 'Nitin Jose', 'IT', 700),
+             (6, 'Anky', 'sales', 8000),
+             (7, 'sanjay', 'operations head', 2000),
+             (8, 'mihir', 'tester', 500);
+
+Q5) WSQL to fetch list of employees with salary more than 50k.
+
+          :   SELECT * FROM employee WHERE salary > 50000;
+
+Q6) WSQL to count the no of employees in the table.
+
+       : SELECT COUNT(*) AS total_employees FROM employee;
+
+Q7) What is the difference between DBMS and RDBMS.
+
+  DBMS stands for Database Management System, while RDBMS stands for Relational Database Management System.The main differences between mention below:
+
+Scalability: RDBMS support distributed system. DBMS systems doesnt support distributed system.
+
+Data Model: DBMS typically supports multiple data models, such as hierarchical,object-oriented.RDBMS follows the relational data model, where data is organized into tables with rows and columns.
+
+Data Structure: DBMS allows for more flexible data organization, including hierarchical or network structures. RDBMS strictly follow to the tabular structure.
+
+Query Language: RDBMS uses SQL (Structured Query Language) as the standard language for querying and manipulating data. DBMS may use specialized query languages depending on the data model or implementation.
+
+ACID Compliance: RDBMS systems follows ACID properties. DBMS systems may or may not provide full ACID compliance.
+
+Q8) What does SQL helps in database.
+
+SQL helps in working with databases such as:
+
+SQL allows the users to retrieve the data from the relational database management systems.
+It also helps them to describe the structured data.
+It allows SQL users to create, drop, and manipulate the database and its tables.
+It also helps in creating the view, stored procedure, and functions in the relational database.
+It allows you to define the data and modify that stored data in the relational database.
+It also allows SQL users to set the permissions or constraints on table columns, views, and stored procedures.
+
+
+Q9) What is the Difference between DROP and Truncate command.
+
+ A-Functionality:
+             DROP: The DROP command is used to remove database objects such as tables, views, indexes, or other database structures. When you use the DROP command, the entire object is deleted from the database, including its structure.
+             TRUNCATE: The TRUNCATE command is used to remove all data from a table. Unlike the DROP command, TRUNCATE only removes the data within the table, not the table structure itself.
+ B-Data Removal:
+
+             DROP: The DROP command deletes the entire table and all its associated data, including indexes, triggers, and constraints.
+             TRUNCATE: The TRUNCATE command removes all rows from a table while preserving the table structure, indexes. It effectively empties the table of its data.
+ C-Transactional Integrity:
+
+             DROP: The DROP command is a DDL (Data Definition Language) operation and is typically not transactional. It commits the changes immediately and cannot be rolled back.
+             TRUNCATE: The TRUNCATE command is also a DDL operation, but it can be rolled back within a transaction. If it is performed within a transaction block, you can use a ROLLBACK statement to undo the truncation and restore the data.
+ D-Efficiency:
+
+             DROP: The DROP command is slower compared to TRUNCATE because it involves deleting the table and its associated structures.
+             TRUNCATE: The TRUNCATE command is faster than DROP, especially for large tables, as it simply removes the data without logging individual row deletions.
+
+
+
+Q10) WSQL to fetch list of employees who lives in with statecode as 'DL'.
+
+                  :    SELECT * FROM employee WHERE statecode = 'DL';
