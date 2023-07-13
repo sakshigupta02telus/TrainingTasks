@@ -1,0 +1,92 @@
+Q.1. WAP to find  characters those occurs three times in a given String?
+        Input : 
+                 string="Today is Evaluation Day.Evaluation is good for us "
+        Output:
+                   s
+                   u
+CODE:
+
+import java.util.HashMap;
+import java.util.Map;
+public class CharacterFind {
+    public static void main(String[] args) {
+        String string = "Today is Evaluation Day.Evaluation is good for us";
+        Map<Character, Integer> characterCounts = new HashMap<>();
+
+        for (char c : string.toCharArray()) {
+            characterCounts.put(c, characterCounts.getOrDefault(c, 0) + 1);
+        }
+
+        for (Map.Entry<Character, Integer> entry : characterCounts.entrySet()) {
+            if (entry.getValue() == 3) {
+                System.out.println(entry.getKey());
+            }
+        }
+    }
+
+}
+
+ 
+
+
+Q.2 .WAP to find the factorial of an integer?
+       Input: 
+                number=5
+     Output: 
+               factorial=120
+
+CODE :  
+    
+     
+public class Factorial2 {
+    public static void main(String[] args) {
+        int number = 5;
+        long factorial = calculateFactorial(number);
+        System.out.println(factorial);
+    }
+
+    public static long calculateFactorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * calculateFactorial(n - 1);
+        }
+    }
+}
+
+
+
+
+Consider a table product table with column productId,productName,productCode,price,quantity assume 10 records are present
+
+Q.3 WAQ to find minumum price product.
+
+  : SELECT *
+   FROM product
+   WHERE price = (SELECT MIN(price) FROM product);
+
+
+
+Q.4 WAQ to insert records .
+
+    :INSERT INTO product (productId, productName, productCode, price, quantity)
+   VALUES
+  (1, 'Product A', 'P1', 100, 2),
+  (2, 'Product B', 'P2', 200, 10),
+  (3, 'Product C', 'P3', 300, 1),
+  (4, 'Product D', 'P4', 1200, 3),
+  (5, 'Product E', 'P5', 99, 6),
+  (6, 'Product F', 'P6', 199, 5),
+  (7, 'Product G', 'P7', 99, 8),
+  (8, 'Product H', 'P8', 99, 5),
+  (9, 'Product I', 'P9', 80, 5),
+  (10, 'Product J', 'P10', 70, 104);
+
+
+
+Q.5 WAQ to find all the productName when price is  50 and productName is myProduct. order by heighest to lowest price.
+
+      : SELECT productName
+         FROM product
+         WHERE price = 50 AND productName = 'myProduct'
+       ORDER BY price DESC;
